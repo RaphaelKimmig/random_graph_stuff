@@ -1,6 +1,6 @@
 from data import constant_factory, PriorityQueue
 from collections import defaultdict
-from networkx import nx
+import networkx as nx
 
 __all__ = ['dijkstra', 'dijkstra_cancel', 'dijkstra_bidirectional', 'dijkstra_bidirectional_mue']
 def dijkstra(graph, s):
