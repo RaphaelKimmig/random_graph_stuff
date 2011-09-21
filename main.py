@@ -41,7 +41,8 @@ if __name__ == '__main__':
     ts = get_targets(g, s, [ 2**i for i in xrange(4, int(math.log(n, 2))) if 2**i < n ])
     if draw_it:
         ts = get_targets(g, s, [draw_rank])
-    algorithms = [ dijkstra_cancel, dijkstra_bidirectional, a_star, a_star_bidirectional  ]
+    algorithms = [ a_star_bidirectional ]      
+#    algorithms = [ dijkstra_cancel, dijkstra_bidirectional, a_star, a_star_bidirectional  ]
 #    algorithms = [ dijkstra_cancel, dijkstra_bidirectional, dijkstra_bidirectional_mue, a_star,
 #                   a_star_bidirectional, a_star_bidirectional_onesided, a_star_bidirectional_betterpi, cheater ]
     results = defaultdict(list)
@@ -125,6 +126,7 @@ if __name__ == '__main__':
 #        # p_classic.sort_stats('time').print_stats()
 #
 
-    from matplotlib import pylab
-    #nx.draw(graph, 0)
-    pylab.show()
+    if draw_it:
+        from matplotlib import pylab
+        #nx.draw(graph, 0)
+        pylab.show()
