@@ -1,5 +1,6 @@
 from _collections import defaultdict
 import cProfile
+from matplotlib import pylab
 import pstats
 import sys
 import math
@@ -48,6 +49,19 @@ if __name__ == '__main__':
     base_results = []
     sys.stdout.write('running ')
     count = 0
+
+    # for t, rank in ts:
+    #     rd = dijkstra_cancel(g, s, t)
+    #     ra = a_star(g, s, t)
+
+    #     highlight = []
+    #     highlight.extend(rd[3])
+    #     highlight.extend(ra[3])
+    #     draw('zwei', g, s, [t for (t,r) in ts], highlight)
+    #     pylab.show()
+    #     sys.exit(0)
+
+
     for t, rank in ts:
         base_results.append(dijkstra_cancel(g, s, t))
         for algorithm in algorithms:
@@ -67,8 +81,9 @@ if __name__ == '__main__':
             sys.stdout.flush()
     sys.stdout.write(' done\n')
 
-    sys.stdout.write("%32s |" % "t")
 
+
+    sys.stdout.write("%32s |" % "t")
     for (t, rank) in ts:
         sys.stdout.write("%11d |" % rank)
     sys.stdout.write('\n')
@@ -125,6 +140,4 @@ if __name__ == '__main__':
 #        # p_classic.sort_stats('time').print_stats()
 #
 
-    from matplotlib import pylab
     #nx.draw(graph, 0)
-    pylab.show()
