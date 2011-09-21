@@ -182,18 +182,15 @@ def draw(title, graph, s, ts, search_spaces=list()):
         node in graph.nodes()))
 
     graph = nx.Graph(graph)
-    nx.draw(graph, layout, node_color='white', with_labels=False, node_size=5)
+    nx.draw(graph, layout, node_color='black', with_labels=False, node_size=2)
 
-    n_spaces = len(search_spaces)
-    colors = [ 'r', 'g', 'b']
+    colors = [ 'cyan', 'orange', 'y', 'g', 'purple', 'brown']
     for i, search_space in enumerate(search_spaces):
-        print (1.0/n_spaces)*i, (1.0/n_spaces)*(i+1)
-        b = len(search_space)
-        nx.draw_networkx_nodes(graph, layout, nodelist=search_space, node_color=colors[i], node_size=150)
+        nx.draw_networkx_nodes(graph, layout, nodelist=search_space, node_color=colors[i], node_size=100)
 
-    nx.draw_networkx_nodes(graph, layout, nodelist=[s], node_color='cyan', node_size=50)
+    nx.draw_networkx_nodes(graph, layout, nodelist=[s], node_color='r', node_size=40)
 
-    nx.draw_networkx_nodes(graph, layout, nodelist=ts, node_color=range(len(ts), 0, -1), cmap=plt.cm.autumn, node_size=50)
+    nx.draw_networkx_nodes(graph, layout, nodelist=ts, node_color=range(len(ts),0,-1), vmin=len(ts)/2, vmax=len(ts),  cmap=plt.cm.Blues, node_size=50)
 
 #    edge_labels=dict([((u,v,),"%5.1f" % d['weight'])
 #                 for u,v,d in graph.edges(data=True)])
